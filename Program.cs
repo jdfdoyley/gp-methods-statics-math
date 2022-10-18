@@ -15,5 +15,8 @@ public class StaticsMethodsMath
     static void Main(string[] args)
     {
         // Print a header line
+        Console.WriteLine(
+            "\nJason D'Oyley - Week 3 GP Methods, Statics, Class Math\n"
+        );
     }
 }
