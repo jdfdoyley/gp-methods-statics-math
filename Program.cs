@@ -35,7 +35,65 @@ public class StaticsMethodsMath
             double f2 = double.Parse(vals[1]);
             double f3 = double.Parse(vals[2]);
 
-            Console.WriteLine($"{f1}\n{f2}\n{f3}");
+            // Find the maximum of the 3 values and print the result
+            DisplayMessage(MaxOfThree(f1, f2, f3));
         }
+
+        // Get 3 integer values from the user
+        Console.Write(
+            "\nEnter 3 integer values separated by spaces: "
+        );
+        val = Console.ReadLine();
+
+        if (!string.IsNullOrEmpty(val))
+        {
+            string[] vals = val.Split();
+            int i1 = int.Parse(vals[0]);
+            int i2 = int.Parse(vals[1]);
+            int i3 = int.Parse(vals[2]);
+
+            // Find the maximum of the 3 values and print the result
+            DisplayMessage(MaxOfThree(i1, i2, i3));
+        }
+    }
+
+    // Static method to display a message with a floating-point value
+    public static void DisplayMessage(double val)
+    {
+        Console.WriteLine("{0}{1:F2}", Label, val);
+    }
+
+    // Overloaded version of the static method allowing display of a message
+    // with an integer value
+    public static void DisplayMessage(int val)
+    {
+        Console.WriteLine("{0}{1}", Label, val);
+    }
+
+    // Static method to find the maximum of 3 floating-point numbers
+    public static double MaxOfThree(double x, double y, double z)
+    {
+        // Use the Math class' "max" method to find the max value of the first
+        // two values and store it in a local variable
+        double maximumValue = Math.Max(x, y);
+
+        // Use the max method to find the max between our max variable and the
+        // final value, and return the result
+        return Math.Max(maximumValue, z);
+    }
+
+    // Overload version of the static method providing the ability to find the
+    // maximum of 3 integer numbers. Note that the processing is identical to
+    // to the floating-point version and even uses the "max" method...which is
+    // possible because Math.max is an overloaded method itself
+    public static int MaxOfThree(int x, int y, int z)
+    {
+        // Use the Math class' "max" method to find the max value of the first
+        // two values and store it in a local variable
+        int maximumValue = Math.Max(x, y);
+
+        // Use the max method to find the max between our max variable and the
+        // final value, and return the result
+        return Math.Max(maximumValue, z);
     }
 }
